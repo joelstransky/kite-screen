@@ -1,0 +1,26 @@
+.jps__kite-screen {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    box-shadow: inset 0 0 50px 30px #4dd0e17d;
+    border: 8px solid #4dd0e1;
+    pointer-events: none;
+}
+.jps__kite-screen:before {
+    content: 'Fly This Screen 🪁';
+    position: absolute;
+    z-index: 9999;
+    left: 1em;
+    display: block;
+    padding: 4px 8px;
+    font-weight: 900;
+    background: #4dd0e1;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: white;
+    text-shadow: 1px 1px 1px #000;
+    pointer-events: all;
+    cursor: pointer;
+}
