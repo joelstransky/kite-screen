@@ -1,14 +1,13 @@
 (async () => {
   const evaluateElement = async (target, videos) => {
-    console.log('target is', target.dataset.videoid);
     for (let item of videos) {
-      console.log(item.src === target.dataset.videoid)
       if (item.src === target.dataset.videoid){
         try {
             if (item !== document.pictureInPictureElement) {
-              console.log('attempting');
+              target.classList.add('jps__reel-in');
               await item.requestPictureInPicture();
             } else {
+              target.classList.remove('jps__reel-in');
               await document.exitPictureInPicture();
             }
           } catch (error) {}
@@ -16,7 +15,6 @@
     }
   }
   const videos = document.getElementsByTagName("video");
-  console.log(videos);
   for (let item of videos) {
     const div = document.createElement("div");
     div.className = 'jps__kite-screen';
