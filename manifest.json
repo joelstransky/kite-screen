@@ -1,19 +1,36 @@
 {
+  "manifest_version": 2,
   "name": "Kite Screen",
-  "description": "attempt to float the video player screen",
+  "author": "Joel Stransky",
   "version": "1.0",
-  "permissions": ["activeTab"],
+  "description": "Turn any video into a picture-in-picture",
+  "permissions": ["declarativeContent", "activeTab"],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
   "background": {
-    "scripts": ["kitescreen.js"],
+    "scripts": ["background.js"],
     "persistent": false
   },
-  "browser_action": {
-    "default_title": "Attempt to float this video",
-    "16": "icon16.png",
-    "24": "icon24.png",
-    "32": "icon32.png"
+  "page_action": {
+    "default_title": "Activate Kite Screen",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
   },
-  "manifest_version": 2,
-  "icons": { "16": "icon16.png", "48": "icon48.png", "128": "icon128.png" },
-  "options_page": "options.html"
+  "commands": {
+    "_execute_page_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "windows": "Ctrl+Shift+Space",
+        "mac": "MacCtrl+Shift+Space",
+        "chromeos": "Ctrl+Shift+Space",
+        "linux": "Ctrl+Shift+Space"
+      }
+    }
+  }
 }
