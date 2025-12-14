@@ -36,5 +36,13 @@
         "linux": "Ctrl+Shift+Space"
       }
     }
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/*.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

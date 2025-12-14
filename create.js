@@ -17,6 +17,23 @@
       }
     }
   }
+  // Set background images for icons (only once)
+  if (!document.getElementById('jpsks-icon-styles')) {
+    const iconUrl = chrome.runtime.getURL("images/icon48.png");
+    const exitIconUrl = chrome.runtime.getURL("images/exit48.png");
+    const style = document.createElement("style");
+    style.id = 'jpsks-icon-styles';
+    style.textContent = `
+      .jpsks__b64-icon:before {
+        background-image: url("${iconUrl}");
+      }
+      .jpsks__b64-icon.jpsks__reel-in:before {
+        background-image: url("${exitIconUrl}");
+      }
+    `;
+    document.head.appendChild(style);
+  }
+  
   // https://stackoverflow.com/questions/14377590/queryselector-and-queryselectorall-vs-getelementsbyclassname-and-getelementbyid
   const videos = document.getElementsByTagName("video");
   for (let item of videos) {
