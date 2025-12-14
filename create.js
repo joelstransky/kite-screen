@@ -20,11 +20,19 @@
   // https://stackoverflow.com/questions/14377590/queryselector-and-queryselectorall-vs-getelementsbyclassname-and-getelementbyid
   const videos = document.getElementsByTagName("video");
   for (let item of videos) {
+    // Ensure parent is positioned for absolute overlay
+    const parent = item.parentElement;
+    const parentStyle = window.getComputedStyle(parent);
+    if (parentStyle.position === "static") {
+      parent.style.position = "relative";
+      parent.dataset.jpsksPerm = "static";
+    }
+
     const div = document.createElement("div");
     div.className = 'jpsks__kite-screen jpsks__b64-icon';
     div.setAttribute('data-videoid', item.src);
     div.onclick = (e) => evaluateElement(e.target, videos);
-    item.parentElement.appendChild(div);
+    parent.appendChild(div);
   }
 
 })();

@@ -59,7 +59,7 @@
 
 @keyframes slidein {
   from {
-    left: -80px;
+    right: -80px;
     opacity: 0;
   }
 }
